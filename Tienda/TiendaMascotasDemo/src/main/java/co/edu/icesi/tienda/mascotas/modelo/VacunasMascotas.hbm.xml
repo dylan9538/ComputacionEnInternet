@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-feb-2016 16:38:22 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="co.edu.icesi.tienda.mascotas.modelo.VacunasMascotas" table="vacunas_mascotas" schema="public">
+        <composite-id name="id" class="co.edu.icesi.tienda.mascotas.modelo.VacunasMascotasId">
+            <key-property name="masCodigo" type="long">
+                <column name="mas_codigo" precision="10" scale="0" />
+            </key-property>
+            <key-property name="vacCodigo" type="long">
+                <column name="vac_codigo" precision="10" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vacunas" class="co.edu.icesi.tienda.mascotas.modelo.Vacunas" update="false" insert="false" fetch="select">
+            <column name="vac_codigo" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="mascotas" class="co.edu.icesi.tienda.mascotas.modelo.Mascotas" update="false" insert="false" fetch="select">
+            <column name="mas_codigo" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="vacmasFecha" type="date">
+            <column name="vacmas_fecha" length="13" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

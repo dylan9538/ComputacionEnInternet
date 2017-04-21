@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-ene-2016 16:33:57 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="co.edu.icesi.demo.modelo.TiposDocumentos" table="tipos_documentos" schema="public">
+        <id name="tdocCodigo" type="long">
+            <column name="tdoc_codigo" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="tdocNombre" type="string">
+            <column name="tdoc_nombre" length="50" not-null="true" />
+        </property>
+        <set name="clienteses" table="clientes" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tdoc_codigo" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="co.edu.icesi.demo.modelo.Clientes" />
+        </set>
+    </class>
+</hibernate-mapping>

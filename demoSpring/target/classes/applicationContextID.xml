@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+<bean  name = "motor" class="co.edu.icesi.demo.auto.Motor" scope = "prototype">
+<property name="cilindraje" value="2500"></property>
+<property name="marca" value="BMW"></property>
+<property name="turbo" value="true"></property>
+
+</bean>
+
+
+<bean  name = "vehiculo" class="co.edu.icesi.demo.auto.Vehiculo" scope = "prototype">
+<property name="motor" ref="motor"></property>
+<property name="marca" value="BMW"></property>
+
+
+</bean>
+	
+	
+</beans>
